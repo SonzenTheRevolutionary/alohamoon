@@ -3,6 +3,7 @@ import massageIcon from '../public/icons/massage icon.png'
 import lotionIcon from '../public/icons/lotion icon.png'
 import oilIcon from '../public/icons/oils.png'
 import serviceImg from "../public/service image.jpeg"
+import Link from 'next/link'
 
 function Services() {
     return (
@@ -16,7 +17,7 @@ function Services() {
                     <h3 className="mt-10 mb-[10px] text-[17px] leading-[22px] font-syne font-bold">Massage</h3>
                     <p className="mb-[10px] font-playfair text-dim-gray text-[17px] leading-[23px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
-                    <a className="font-syne font-bold text-sm leading-[17px] mt-5 underline" href="/">Learn More</a>
+                    <Link className="font-syne font-bold text-sm leading-[17px] mt-5 underline" href="/">Learn More</Link>
                 </div>
 
 
@@ -30,7 +31,7 @@ function Services() {
                 <div className="md:max-w-[400px]">
                     <h3 className="mt-10 mb-[10px] text-[17px] leading-[22px] font-syne font-bold">Body Treatments</h3>
                     <p className="mb-[10px] font-playfair text-dim-gray text-[17px] leading-[23px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <a className="font-syne font-bold text-sm leading-[17px] mt-5 underline" href="/">Learn More</a>
+                    <Link className="font-syne font-bold text-sm leading-[17px] mt-5 underline" href="/">Learn More</Link>
                 </div>
 
 
@@ -54,7 +55,7 @@ function Services() {
                     <h3 className="mt-10 mb-[10px] text-[17px] leading-[22px] font-syne font-bold">Oil Therapy</h3>
                     <p className="mb-[10px] font-playfair text-dim-gray text-[17px] leading-[23px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
-                    <a className="font-syne font-bold text-sm leading-[17px] mt-5 underline" href="/">Learn More</a>
+                    <Link className="font-syne font-bold text-sm leading-[17px] mt-5 underline" href="/">Learn More</Link>
                 </div>
 
 
