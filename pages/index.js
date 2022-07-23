@@ -60,7 +60,9 @@ export default function Home() {
                   <p className="font-playfair text-[17px] text-dim-gray leading-[23px] mb-[10px]">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </p>
-                  <Link className="mt-5 font-syne font-bold text-sm leading-[17px] underline" href="/">Learn More</Link>
+                  <Link href="/">
+                        <a className="font-syne font-bold text-sm leading-[17px] mt-5 underline">Learn More</a>
+                    </Link>
                 </div>
               </div>
 
@@ -76,7 +78,9 @@ export default function Home() {
                   <p className="font-playfair text-[17px] text-dim-gray leading-[23px] mb-[10px]">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </p>
-                  <Link className="mt-5 font-syne font-bold text-sm leading-[17px] underline" href="/">Learn More</Link>
+                  <Link href="/">
+                        <a className="font-syne font-bold text-sm leading-[17px] mt-5 underline">Learn More</a>
+                    </Link>
                 </div>
               </div>
 
@@ -94,7 +98,9 @@ export default function Home() {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </p>
 
-                  <Link className="mt-5 font-syne font-bold text-sm leading-[17px] underline" href="/">Learn More</Link>
+                  <Link href="/">
+                        <a className="font-syne font-bold text-sm leading-[17px] mt-5 underline">Learn More</a>
+                    </Link>
                 </div>
               </div>
             </div>
