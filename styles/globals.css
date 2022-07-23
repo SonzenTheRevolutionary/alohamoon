@@ -8,7 +8,7 @@
 
 #Hero {
     background-color: #F2EEE8;
-    background-image: url('../public/banner.png');
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/images-d5405.appspot.com/o/banner.png?alt=media&token=3867525b-a8d2-43fc-aab3-54faed97796c');
     background-size: contain;
     min-height: 100px;
     background-position: 100% 50% ;
