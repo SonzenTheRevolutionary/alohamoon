@@ -28,6 +28,13 @@ export interface Props {
 }
 
 
+function orderPosts(posts: [Post]) {
+  return posts.sort((a, b) => {
+    return a.postNumber - b.postNumber
+  })
+}
+
+
 export function getCategory(post){
  let category = post.categories.map(category => category.title).toString()
   return category
@@ -37,6 +44,9 @@ export function getCategory(post){
 
 export default function Home({ posts }: Props) {
 
+  const orderedPosts = orderPosts(posts)
+
+  console.log(orderedPosts)
 
   //console.log(typeof posts.map(post => post.categories.map(category => category.title)).toString())
 
@@ -53,13 +63,12 @@ export default function Home({ posts }: Props) {
         <Hero />
 
         <div className='relative grid grid-cols-1 xsm:grid-cols-2 md:grid-cols-4 gap-3 items-stretch place-content-stretch justify-items-stretch justify-evenly mx-auto px-[10px] pt-[10px]'>
-          {posts.map((post) => {
-            if (getCategory(post) == "service" || getCategory(post) == "service-image") 
-            {
+          {orderedPosts.map((post) => {
+            if (getCategory(post) == "service" || getCategory(post) == "service-image") {
               let category = getCategory(post)
 
               return (
-                  <Services post={post} />
+                  <Services post={post} postNumber={post.postNumber} />
               )
             }
             else {

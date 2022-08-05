@@ -13,18 +13,16 @@ import React from 'react'
 
 let instance=0;
 
-function Services({ post }) {
+function Services({ post, postNumber }) {
     instance = post.postNumber;
-    console.log(instance);
 
     let category = post.categories.map(category => category.title)
     let mainImage = urlFor(post.mainImage).url()!
 
-    console.log(instance)
 
     if (category == "service") {
         return (
-                <div className={`flex flex-col order-${instance} justify-between pt-[30px] pb-10 px-[34px] min-h-[300px] bg-linen`}>
+                <div className={`order-[${instance}] flex flex-col justify-between pt-[30px] pb-10 px-[34px] min-h-[300px] bg-linen`}>
                     <div className="w-[50px] max-w-[50px]">
                         <img src={
                             urlFor(post.mainImage).url()!
@@ -40,7 +38,8 @@ function Services({ post }) {
                     </div>
                 </div>
         )
-    } else if (category == "service-image") { 
+    } else { 
+        console.log(post)
         return (
             <div id='service-img' className={`order-${instance} overflow-hidden min-h-[300px] max-h-full bg-linen`}>
                 <style>
