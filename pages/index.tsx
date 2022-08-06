@@ -16,6 +16,7 @@ import bodyMassageIcon from '.././public/icons/body massage icon.png'
 import faceMaskIcon from '.././public/icons/face mask icon.png'
 import geothermicMassageIcon from '.././public/icons/geothermic icon.png'
 import fullBodyMassageIcon from '.././public/icons/full body massage icon.png'
+import headshot from '.././public/michelle headshot.jpeg'
 import saunaIcon from '.././public/icons/sauna icon.png'
 import makeupIcon from '.././public/icons/makeup and massage.png'
 import Link from 'next/link'
@@ -25,6 +26,7 @@ import { Post } from '.././typings'
 
 export interface Props {
   posts: [Post];
+  informationPosts: [Post];
 }
 
 
@@ -35,18 +37,19 @@ function orderPosts(posts: [Post]) {
 }
 
 
-export function getCategory(post){
- let category = post.categories.map(category => category.title).toString()
+export function getCategory(post) {
+  let category = post.categories.map(category => category.title).toString()
   return category
 }
 
 
 
-export default function Home({ posts }: Props) {
+export default function Home({ posts, informationPosts }: Props) {
 
   const orderedPosts = orderPosts(posts)
 
-  console.log(orderedPosts)
+  console.log(informationPosts)
+
 
   //console.log(typeof posts.map(post => post.categories.map(category => category.title)).toString())
 
@@ -68,8 +71,9 @@ export default function Home({ posts }: Props) {
               let category = getCategory(post)
 
               return (
-                  <Services post={post} postNumber={post.postNumber} />
+                <Services post={post} postNumber={post.postNumber} />
               )
+              console.log(post)
             }
             else {
               return
@@ -153,25 +157,28 @@ export default function Home({ posts }: Props) {
               </div>
             </div>
 
-            <div className='grid  md:grid-cols-2 items-center justify-items-stretch content-evenly justify-evenly gap-[100px] mt-20'>
+            <div className='grid md:grid-cols-2 text-justify items-center justify-items-stretch content-evenly justify-evenly gap-14 xsm:gap-[100px] mt-20'>
               <div className="w-auto h-auto max-w-full">
-                <Image src={oilsImg} alt="header" width={2000} height={2080} />
+                <Image src={headshot} alt="header" width={3024} height={4032} />
               </div>
 
               <div className="max-w-[80%] mx-auto my-0 text-left">
-                <div className="w-[70px] max-w-full mb-[-30px]">
+                <div className="w-[70px] max-w-full -mb-5 xsm:mb-[-30px]">
                   <Image src={flowerIcon2} alt="header" width={502} height={370} />
                 </div>
 
-                <h2 className='font-syne my-10 font-bold text-[39px] leading-[42px]'>
-                  Experience <br />& knowledge gained over 10 years.
+                <h2 className='font-syne my-6 xsm:my-10 font-bold text-[39px] leading-[42px]'>
+                  About Aloha Moon
                 </h2>
 
                 <p className="mb-[10px] font-playfair text-[17px] leading-[23px] text-dim-gray">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+                  My name is Michelle Soto, I am the Owner and Operator of Aloha Moon Massage. I moved to the beautiful Island of Kauai over twenty years ago, where I have practiced as a Bodyworker and Esthetician.
+                  I am the Former Trainer and Lead Therapist of the Hale Lea Spa
+                  in both massage and facials at St. Regis Resort, where we received an Award for “Best Spa” While I was Trainer. I was also recognized with a Diamond award for Excellence.
                   <br />
                   <br />
-                  Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.
+                  I’ve worked with Professional Athletes, Celebrities, Elderly People with Chronic Pain, Pregnant Women  and Honeymooners. I absolutely Love what I do. I have been fortunate enough to learn from highly skilled Teachers from all over the World and  I’m Trained in many Modalities and always learning more. In 2017 I was able Take all the things Ive learned and open my own Day Spa “Aloha Moon” in Old Town Kapaa, Where I can bring  The Quality service from Luxury Spas and offer customized services at an affordable price
+                  The Therapists that Work with Me at Aloha Moon are all highly trained and Skilled technicians with Years of experience. We customize the service to your individual needs. 
                 </p>
 
                 <button className="mt-[50px] relative bg-burlywood mb-4 md:mb-0 py-3 px-8 md:px-5 rounded-md text-sm font-syne font-bold">Make Reservation</button>
@@ -436,7 +443,7 @@ export default function Home({ posts }: Props) {
 
 export const getServerSideProps = async () => {
   const query = `
-  *[_type == "service-post" ] {
+  *[_type == "service-post"] {
     _id,
     categories[]->{
     title
@@ -448,13 +455,29 @@ export const getServerSideProps = async () => {
   mainImage,
     slug
    }`;
-
-
   const posts = await sanityClient.fetch(query);
+
+
+  const informationQuery = `
+  *[_type == "information-section"] {
+    _id,
+    categories[]->{
+    title
+  },
+  postNumber,
+
+    title,
+  description,
+  mainImage,
+    slug
+    }`;
+
+  const informationPosts = await sanityClient.fetch(informationQuery);
 
   return {
     props: {
-      posts
+      posts,
+      informationPosts
     }
   }
 } 

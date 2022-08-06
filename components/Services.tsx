@@ -21,8 +21,9 @@ function Services({ post, postNumber }) {
 
 
     if (category == "service") {
+        console.log(postNumber)
         return (
-                <div className={`order-[${instance}] flex flex-col justify-between pt-[30px] pb-10 px-[34px] min-h-[300px] bg-linen`}>
+                <div className={`order-${instance} flex flex-col justify-between pt-[30px] pb-10 px-[34px] min-h-[300px] bg-linen`}>
                     <div className="w-[50px] max-w-[50px]">
                         <img src={
                             urlFor(post.mainImage).url()!
@@ -39,7 +40,6 @@ function Services({ post, postNumber }) {
                 </div>
         )
     } else { 
-        console.log(post)
         return (
             <div id='service-img' className={`order-${instance} overflow-hidden min-h-[300px] max-h-full bg-linen`}>
                 <style>

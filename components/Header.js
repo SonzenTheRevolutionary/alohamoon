@@ -4,7 +4,7 @@ import Hamburger from '../public/icons/hamburger.svg'
 import { MenuIcon } from '@heroicons/react/solid'
 import InstagramIcon from '../public/icons/instagram.svg'
 import FacebookIcon from '../public/icons/facebook.svg'
-import { useState } from "react"
+import { useRef, useState } from "react"
 import Menu from "./Menu"
 
 console.log(Hamburger)
@@ -29,7 +29,7 @@ function Header(props) {
                 <InstagramIcon className="w-[22px] h-[50px]" />
 
 
-                <div onClick={() => setOpen(!open)} className="flex justify-center items-center space-x-3">
+                <div onClick={() => setOpen(!open) } className="flex justify-center items-center space-x-3">
                 <Hamburger className="w-[35px] h-[50px]" />
                 <h1 className="hidden xsm:block font-syne font-extrabold text-[9px] leading-5 tracking-[5px]">MENU</h1>
                 </div>
