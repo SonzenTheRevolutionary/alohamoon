@@ -30,7 +30,7 @@ function Services({ post, postNumber }) {
                         } alt="header" />
                     </div>
                     <div className="md:max-w-[400px]">
-                        <h3 className="mt-10 mb-[10px] text-[18px] leading-[22px] font-syne font-bold">{post.title}</h3>
+                        <h3 className="mt-10 xsm:mt-20 mb-[10px] text-[18px] leading-[22px] font-syne font-bold">{post.title}</h3>
                         <p className="mb-[10px] font-playfair text-dim-gray text-[17px] leading-[23px]">{post.description}</p>
 
                         <Link href="/">
