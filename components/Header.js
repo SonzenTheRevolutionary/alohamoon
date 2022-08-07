@@ -1,7 +1,6 @@
 import Image from "next/image"
 import logo from '../public/alohamoon logo.png'
 import Hamburger from '../public/icons/hamburger.svg'
-import { MenuIcon } from '@heroicons/react/solid'
 import InstagramIcon from '../public/icons/instagram.svg'
 import FacebookIcon from '../public/icons/facebook.svg'
 import { useRef, useState } from "react"

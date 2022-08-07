@@ -22,6 +22,7 @@ import makeupIcon from '.././public/icons/makeup and massage.png'
 import Link from 'next/link'
 import Menu from '../components/Menu'
 import { Post } from '.././typings'
+import Hourly from '../components/Hourly'
 
 
 export interface Props {
@@ -432,8 +433,10 @@ export default function Home({ posts, informationPosts }: Props) {
 
           </div>
 
-
         </section>
+
+        
+        <Hourly />
 
       </div>
 

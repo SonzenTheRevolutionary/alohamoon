@@ -30,3 +30,10 @@
     background-size: cover;
     background-position: 100% 40%;
 }
+
+#hourly-bg {
+    background-image: url(../public/hours.jpeg);
+    background-size: cover;
+    background-position: 50% 60%;
+    background-repeat: no-repeat;
+}
