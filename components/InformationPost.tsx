@@ -6,7 +6,7 @@ import { urlFor } from "../sanity"
 function InformationPost({ post }) {
 
   return (
-    <div}>
+    <div>
       <div className='flex flex-col pt-0 md:px-[34px] pb-10 items-center justify-between'>
         <div className="inline-block w-[50px] max-w-full xsm:pb-3 h-auto">
           <img src={
