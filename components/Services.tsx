@@ -32,7 +32,7 @@ function Services({ post, postNumber }) {
                         <h3 className="mt-10 xsm:mt-20 mb-[10px] text-[18px] leading-[22px] font-syne font-bold">{post.title}</h3>
                         <p className="mb-[10px] font-playfair text-dim-gray text-[17px] leading-[23px]">{post.description}</p>
 
-                        <Link href={`/post/${post.slug.current}`}>
+                        <Link key={post._id} href={`/post/${post.slug.current}`}>
                             <a className="font-syne font-bold text-sm leading-[17px] mt-5 underline">Learn More</a>
                         </Link>
                     </div>

@@ -18,7 +18,7 @@ function InformationPost({post}) {
                   <p className="font-playfair text-[17px] text-dim-gray leading-[23px] mb-[10px]">
                     {post.description}
                   </p>
-                  <Link href="/">
+                  <Link key={post._id} href="/">
                     <a className="font-syne font-bold text-sm leading-[17px] mt-5 underline">Learn More</a>
                   </Link>
                 </div>
