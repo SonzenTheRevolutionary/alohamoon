@@ -44,6 +44,15 @@ export default {
       },
     },
     {
+      name: 'backgroundImage',
+      title: 'background image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
+
+    {
       name: 'body',
       title: 'Body',
       type: 'blockContent',

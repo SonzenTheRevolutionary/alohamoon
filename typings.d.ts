@@ -8,6 +8,12 @@ export interface Post {
             url: string;
         };
     }
+
+    backgroundImage: {
+        asset: {
+            url: string;
+        };
+    }
     postNumber: number;
 
     slug: {

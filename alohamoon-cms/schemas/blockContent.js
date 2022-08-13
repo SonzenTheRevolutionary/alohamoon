@@ -8,6 +8,9 @@
  *    type: 'blockContent'
  *  }
  */
+
+
+
 export default {
   title: 'Block Content',
   name: 'blockContent',

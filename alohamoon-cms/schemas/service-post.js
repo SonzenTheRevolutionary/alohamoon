@@ -2,6 +2,7 @@ export default {
   name: 'service-post',
   title: 'Service Post',
   type: 'document',
+  liveEdit: true,
   fields: [
     {
       name: 'categories',
@@ -43,6 +44,15 @@ export default {
       },
     },
     {
+      name: 'backgroundImage',
+      title: 'background image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
+
+    {
       name: 'body',
       title: 'Body',
       type: 'blockContent',
@@ -55,6 +65,7 @@ export default {
       author: 'author.name',
       media: 'mainImage',
     },
+    
     prepare(selection) {
       const {author} = selection
       return Object.assign({}, selection, {

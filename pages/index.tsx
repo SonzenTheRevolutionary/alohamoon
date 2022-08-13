@@ -23,6 +23,7 @@ import Link from 'next/link'
 import Menu from '../components/Menu'
 import { Post } from '.././typings'
 import Hourly from '../components/Hourly'
+import InformationPost from '../components/InformationPost'
 
 
 export interface Props {
@@ -38,6 +39,7 @@ function orderPosts(posts: [Post]) {
 }
 
 
+
 export function getCategory(post) {
   let category = post.categories.map(category => category.title).toString()
   return category
@@ -48,6 +50,7 @@ export function getCategory(post) {
 export default function Home({ posts, informationPosts }: Props) {
 
   const orderedPosts = orderPosts(posts)
+  const orderedInformationPosts = orderPosts(informationPosts)
 
   console.log(informationPosts)
 
@@ -98,64 +101,12 @@ export default function Home({ posts, informationPosts }: Props) {
               </h2>
             </div>
 
-
-
+            {/*InformationPosts*/}
             <div className='grid grid-flow-row xsm:grid-cols-2 base:grid-cols-3 items-stretch justify-items-stretch content-evenly justify-evenly'>
-
-              <div className='flex flex-col pt-0 md:px-[34px] pb-10 items-center justify-between'>
-                <div className="inline-block w-[50px] max-w-full xsm:pb-3 h-auto">
-                  <Image src={rocksIcon} alt="rocks" width={500} height={559} />
-                </div>
-                <div className='flex-1'>
-                  <h3 className="font-syne font-bold text-[19px] leading-[22px] mt-10 mb-[10px]">
-                    Stone spa
-                  </h3>
-                  <p className="font-playfair text-[17px] text-dim-gray leading-[23px] mb-[10px]">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                  <Link href="/">
-                    <a className="font-syne font-bold text-sm leading-[17px] mt-5 underline">Learn More</a>
-                  </Link>
-                </div>
-              </div>
-
-
-              <div className='flex flex-col pt-0 md:px-[34px] pb-10 items-center justify-between'>
-                <div className="inline-block w-[50px] max-w-full h-auto">
-                  <Image src={bambooIcon} alt="rocks" width={800} height={1097} />
-                </div>
-                <div className='flex-1'>
-                  <h3 className="font-syne font-bold text-[19px] leading-[22px] mt-10 mb-[10px]">
-                    Winter Ritual
-                  </h3>
-                  <p className="font-playfair text-[17px] text-dim-gray leading-[23px] mb-[10px]">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                  <Link href="/">
-                    <a className="font-syne font-bold text-sm leading-[17px] mt-5 underline">Learn More</a>
-                  </Link>
-                </div>
-              </div>
-
-              <div className='flex flex-col pt-0 md:px-[34px] pb-10 items-center justify-between'>
-                <div className="inline-block w-[50px] max-w-full h-auto">
-                  <Image src={candleIcon} alt="rocks" width={500} height={713} />
-                </div>
-
-                <div className='flex-1'>
-                  <h3 className="font-syne font-bold text-[19px] leading-[22px] mt-10 mb-[10px]">
-                    Candle Message
-                  </h3>
-
-                  <p className="font-playfair text-[17px] text-dim-gray leading-[23px] mb-[10px]">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-
-                  <Link href="/">
-                    <a className="font-syne font-bold text-sm leading-[17px] mt-5 underline">Learn More</a>
-                  </Link>
-                </div>
-              </div>
+              {orderedInformationPosts.map((post) => {
+                return (<InformationPost post={post} />)
+              }
+              )}
             </div>
 
             <div className='grid md:grid-cols-2 text-justify items-center justify-items-stretch content-evenly justify-evenly gap-14 xsm:gap-[100px] mt-20'>
