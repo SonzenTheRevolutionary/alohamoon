@@ -22,7 +22,7 @@ function Services({ post, postNumber }) {
 
     if (category == "service") {
         return (
-                <div className={`order-${instance} flex flex-col justify-between pt-[30px] pb-10 px-[34px] min-h-[300px] bg-linen`}>
+                <div key={post._id} className={`order-${instance} flex flex-col justify-between pt-[30px] pb-10 px-[34px] min-h-[300px] bg-linen`}>
                     <div className="w-[50px] max-w-[50px]">
                         <img src={
                             urlFor(post.mainImage).url()!
@@ -32,7 +32,7 @@ function Services({ post, postNumber }) {
                         <h3 className="mt-10 xsm:mt-20 mb-[10px] text-[18px] leading-[22px] font-syne font-bold">{post.title}</h3>
                         <p className="mb-[10px] font-playfair text-dim-gray text-[17px] leading-[23px]">{post.description}</p>
 
-                        <Link key={post._id} href={`/post/${post.slug.current}`}>
+                        <Link href={`/post/${post.slug.current}`}>
                             <a className="font-syne font-bold text-sm leading-[17px] mt-5 underline">Learn More</a>
                         </Link>
                     </div>
