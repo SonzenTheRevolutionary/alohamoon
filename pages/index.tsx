@@ -75,7 +75,7 @@ export default function Home({ posts, informationPosts }: Props) {
               let category = getCategory(post)
 
               return (
-                <Services post={post} postNumber={post.postNumber} />
+                <Services key={post._id} post={post} postNumber={post.postNumber} />
               )
               console.log(post)
             }
@@ -104,7 +104,7 @@ export default function Home({ posts, informationPosts }: Props) {
             {/*InformationPosts*/}
             <div className='grid grid-flow-row xsm:grid-cols-2 base:grid-cols-3 items-stretch justify-items-stretch content-evenly justify-evenly'>
               {orderedInformationPosts.map((post) => {
-                return (<InformationPost post={post} />)
+                return (<InformationPost key={post._id} post={post} />)
               }
               )}
             </div>

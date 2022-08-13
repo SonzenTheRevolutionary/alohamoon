@@ -22,7 +22,7 @@ function Services({ post, postNumber }) {
 
     if (category == "service") {
         return (
-                <div key={post._id} className={`order-${instance} flex flex-col justify-between pt-[30px] pb-10 px-[34px] min-h-[300px] bg-linen`}>
+                <div className={`order-${instance} flex flex-col justify-between pt-[30px] pb-10 px-[34px] min-h-[300px] bg-linen`}>
                     <div className="w-[50px] max-w-[50px]">
                         <img src={
                             urlFor(post.mainImage).url()!
