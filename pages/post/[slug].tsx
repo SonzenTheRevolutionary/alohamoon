@@ -71,7 +71,7 @@ export const getStaticPaths = async () => {
 
     const paths = posts.map((post: Post) => ({
         params: {
-            slug: post.slug.current
+            slug: post.slug ? post.slug.current : "home"
         }
     }));
     return {
@@ -80,6 +80,7 @@ export const getStaticPaths = async () => {
     }
 };
 
+// This function gets called at build time on server-side.
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     const query = `*[_type == "service-post" && !(_id in path('drafts.**')) && slug.current == $slug][0]{
         _id,
