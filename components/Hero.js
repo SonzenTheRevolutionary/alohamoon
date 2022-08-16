@@ -15,7 +15,7 @@ function Hero() {
                     </div>
 
                     <h1 className="mt-5 mb-[15px] font-syne font-extrabold text-3xl xsm:text-4xl  md:text-[53px] md:leading-[57px]">
-                        Kauai's, <br className="hidden xsm:inline-block" /> number one rated <br /> Massage Therapist
+                        Kauai&apos;s, <br className="hidden xsm:inline-block" /> number one rated <br /> Massage Therapist
 
                     </h1>
 
