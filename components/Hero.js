@@ -15,11 +15,12 @@ function Hero() {
                     </div>
 
                     <h1 className="mt-5 mb-[15px] font-syne font-extrabold text-3xl xsm:text-4xl  md:text-[53px] md:leading-[57px]">
-                        The essence of health <br />& vitality in one place.
+                        Kauai's, <br className="hidden xsm:inline-block" /> number one rated <br /> Massage Therapist
+
                     </h1>
 
                     <p className=" mb-4 xsm:mb-[50px] font-playfair text-base xsm:text-xl md:text-[22px] leading-[25px] text-dim-gray">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Owner Operator Michelle Soto Is an Award winning Former Trainer and Principal Therapist of St.Regis in Massage esthetics
                     </p>
 
                     <div className='flex flex-col xsm:flex-row text-center xsm:space-x-[20px] justify-start max-w-fit'>

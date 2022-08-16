@@ -28,9 +28,9 @@ function Services({ post, postNumber }) {
                             urlFor(post.mainImage).url()!
                         } alt="header" />
                     </div>
-                    <div className="md:max-w-[400px]">
+                    <div className="flex flex-col md:max-w-[400px]">
                         <h3 className="mt-10 xsm:mt-20 mb-[10px] text-[18px] leading-[22px] font-syne font-bold">{post.title}</h3>
-                        <p className="mb-[10px] font-playfair text-dim-gray text-[17px] leading-[23px]">{post.description}</p>
+                        <p className="mb-[10px] whitespace-pre-wrap h-[65px] truncate font-playfair text-dim-gray text-[17px] leading-[23px]">{post.description}</p>
 
                         <Link href={`/post/${post.slug.current}`}>
                             <a className="font-syne font-bold text-sm leading-[17px] mt-5 underline">Learn More</a>
@@ -53,7 +53,6 @@ export default Services
 
 /*return (
     <div id='services' className="relative grid xsm:grid-cols-2 md:grid-cols-4 gap-3 items-stretch place-content-stretch justify-items-stretch justify-evenly mx-auto xsm:px-[10px] pt-[10px]">
-
         <div className="flex flex-col justify-between pt-[30px] pb-10 px-[34px] min-h-[300px] bg-linen">
             <div className="w-[50px] max-w-[50px]">
                 <Image src={massageIcon} alt="header" width={800} height={1153} />

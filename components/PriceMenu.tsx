@@ -27,7 +27,7 @@ function PriceMenu({ price }) {
       <div className="w-[100%]">
         {/*price top*/}
         <div className="flex items-end justify-start pb-[10px] w-{100%]">
-          <h4 className='font-syne font-bold text-lg leading-5 my-0 xsm:mr-5 whitespace-nowrap'>{price.title}</h4>
+          <h4 className='font-syne font-bold text-base leading-5 my-0 xsm:mr-5 whitespace-nowrap'>{price.title}</h4>
           <div className="hidden xsm:block w-[100%] h-[1px] bg-line-gray"></div>
 
           <div className="flex items-end justify-start flex-shrink-0 flex-grow-0 ml-2 xsm:ml-5">

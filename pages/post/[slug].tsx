@@ -28,7 +28,7 @@ function Post({ post, priceMenu }: Props) {
                         }
                     </style>
                     <h1 className="font-syne relative pb-2 text-white font-extrabold text-[32px] xsm:text-[53px] leading-[57px]">{post.title}</h1>
-                    <div className="flex flex-col xsm:flex-row mt-2 xsm:mt-10 mb-[100px]">
+                    <div className="flex flex-col xsm:flex-row mt-2 xsm:mt-10 justify-center mb-[100px]">
                         <button className="relative bg-burlywood text-black mb-2 md:mb-0 py-3 px-6 xsm:px-7 rounded-md text-sm font-syne font-bold">Make Reservation</button>
                         <button className='relative bg-white text-burlywood mr-6 xsm:ml-4 mb-2 md:mb-0 py-3 px-6 xsm:px-7 rounded-md text-sm font-syne font-bold'>Our Treatments</button>
                     </div>
