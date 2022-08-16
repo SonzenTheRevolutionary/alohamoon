@@ -21,20 +21,28 @@ import saunaIcon from '.././public/icons/sauna icon.png'
 import makeupIcon from '.././public/icons/makeup and massage.png'
 import Link from 'next/link'
 import Menu from '../components/Menu'
-import { Post } from '.././typings'
+import { Post, Price_Menu } from '.././typings'
 import Hourly from '../components/Hourly'
 import InformationPost from '../components/InformationPost'
+import PriceMenu from '../components/PriceMenu'
 
 
 export interface Props {
   posts: [Post];
   informationPosts: [Post];
+  priceMenu: [Price_Menu];
 }
 
 
 function orderPosts(posts: [Post]) {
   return posts.sort((a, b) => {
     return a.postNumber - b.postNumber
+  })
+}
+
+export function orderPriceMenu(priceMenu: [Price_Menu]) {
+  return priceMenu.sort((a, b) => {
+    return a.menuNumber - b.menuNumber
   })
 }
 
@@ -47,12 +55,11 @@ export function getCategory(post) {
 
 
 
-export default function Home({ posts, informationPosts }: Props) {
+export default function Home({ posts, informationPosts, priceMenu }: Props) {
 
   const orderedPosts = orderPosts(posts)
   const orderedInformationPosts = orderPosts(informationPosts)
-
-  console.log(informationPosts)
+  const orderedPriceMenu = orderPriceMenu(priceMenu)
 
 
   //console.log(typeof posts.map(post => post.categories.map(category => category.title)).toString())
@@ -130,7 +137,7 @@ export default function Home({ posts, informationPosts }: Props) {
                   <br />
                   <br />
                   I’ve worked with Professional Athletes, Celebrities, Elderly People with Chronic Pain, Pregnant Women  and Honeymooners. I absolutely Love what I do. I have been fortunate enough to learn from highly skilled Teachers from all over the World and  I’m Trained in many Modalities and always learning more. In 2017 I was able Take all the things Ive learned and open my own Day Spa “Aloha Moon” in Old Town Kapaa, Where I can bring  The Quality service from Luxury Spas and offer customized services at an affordable price
-                  The Therapists that Work with Me at Aloha Moon are all highly trained and Skilled technicians with Years of experience. We customize the service to your individual needs. 
+                  The Therapists that Work with Me at Aloha Moon are all highly trained and Skilled technicians with Years of experience. We customize the service to your individual needs.
                 </p>
 
                 <button className="mt-[50px] relative bg-burlywood mb-4 md:mb-0 py-3 px-8 md:px-5 rounded-md text-sm font-syne font-bold">Make Reservation</button>
@@ -144,253 +151,18 @@ export default function Home({ posts, informationPosts }: Props) {
 
 
             {/* PRICING GRID */}
-            <div className='grid md:grid-rows-4 md:grid-cols-2 gap-y-8 md:gap-x-[70px] items-stretch justify-items-stretch content-evenly content-justify-evenly pt-14  md:pt-28'>
-              <div className='flex justify-start items-center text-start'>
-
-                <div className="w-[44px] h-[50px] max-w-full mr-5">
-                  <Image src={teaIcon} alt="header" width={512} height={512} />
-                </div>
-
-                <div className="w-[100%]">
-                  {/*price top*/}
-                  <div className="flex items-end justify-start pb-[10px] w-{100%]">
-                    <h4 className='font-syne font-bold text-base leading-5 my-0 xsm:mr-5 whitespace-nowrap'>Aroma Therapy</h4>
-                    <div className="hidden xsm:block w-[100%] h-[1px] bg-line-gray"></div>
-
-                    <div className="flex items-end justify-start flex-shrink-0 flex-grow-0 ml-5">
-                      <p className="font-playfair italic text-[15px] text-dim-gray leading-[23px] mb-0 mr-[5px]">
-                        from
-                      </p>
-                      <p className="font-syne text-[30px] leading-[30px] mr-[5px]">
-                        $55
-                      </p>
-                    </div>
-                  </div>
-                  <p className="font-playfair text-[17px] leading-[23px] text-dim-gray">
-                    Lorem ispum dolor sit amet
-                  </p>
-                </div>
-
-
-              </div>
-
-              <div className='flex justify-start items-center text-start'>
-
-                <div className="w-[44px] h-[50px] max-w-full mr-5">
-                  <Image src={boneIcon} alt="header" width={512} height={512} />
-                </div>
-
-                <div className="w-[100%]">
-                  {/*price top*/}
-                  <div className="flex items-end justify-start pb-[10px] w-{100%]">
-                    <h4 className='font-syne font-bold text-base leading-5 my-0 xsm:mr-5 whitespace-nowrap'>Backbone Therapy</h4>
-                    <div className="hidden xsm:block w-[100%] h-[1px] bg-line-gray"></div>
-
-                    <div className="flex items-end justify-start flex-shrink-0 flex-grow-0 ml-5">
-                      <p className="font-playfair italic text-[15px] text-dim-gray leading-[23px] mb-0 mr-[5px]">
-                        from
-                      </p>
-                      <p className="font-syne text-[30px] leading-[30px] mr-[5px]">
-                        $107
-                      </p>
-                    </div>
-                  </div>
-                  <p className="font-playfair text-[17px] leading-[23px] text-dim-gray">
-                    Lorem ispum dolor sit amet
-                  </p>
-                </div>
-
-
-              </div>
-
-
-              <div className='flex justify-start items-center text-start'>
-
-                <div className="w-[44px] h-[50px] max-w-full mr-5">
-                  <Image src={bodyMassageIcon} alt="header" width={512} height={512} />
-                </div>
-
-                <div className="w-[100%]">
-                  {/*price top*/}
-                  <div className="flex items-end justify-start pb-[10px] w-{100%]">
-                    <h4 className='font-syne font-bold text-base leading-5 my-0 xsm:mr-5 whitespace-nowrap'>Body Massage</h4>
-                    <div className="hidden xsm:block w-[100%] h-[1px] bg-line-gray"></div>
-
-                    <div className="flex items-end justify-start flex-shrink-0 flex-grow-0 ml-5">
-                      <p className="font-playfair italic text-[15px] text-dim-gray leading-[23px] mb-0 mr-[5px]">
-                        from
-                      </p>
-                      <p className="font-syne text-[30px] leading-[30px] mr-[5px]">
-                        $36
-                      </p>
-                    </div>
-                  </div>
-                  <p className="font-playfair text-[17px] leading-[23px] text-dim-gray">
-                    Lorem ispum dolor sit amet
-                  </p>
-                </div>
-
-
-              </div>
-
-              <div className='flex justify-start items-center text-start'>
-
-                <div className="w-[44px] h-[50px] max-w-full mr-5">
-                  <Image src={faceMaskIcon} alt="header" width={512} height={512} />
-                </div>
-
-                <div className="w-[100%]">
-                  {/*price top*/}
-                  <div className="flex items-end justify-start pb-[10px] w-{100%]">
-                    <h4 className='font-syne font-bold text-base leading-5 my-0 xsm:mr-5 whitespace-nowrap'>Face Masks</h4>
-                    <div className="hidden xsm:block w-[100%] h-[1px] bg-line-gray"></div>
-
-                    <div className="flex items-end justify-start flex-shrink-0 flex-grow-0 ml-5">
-                      <p className="font-playfair italic text-[15px] text-dim-gray leading-[23px] mb-0 mr-[5px]">
-                        from
-                      </p>
-                      <p className="font-syne text-[30px] leading-[30px] mr-[5px]">
-                        $41
-                      </p>
-                    </div>
-                  </div>
-                  <p className="font-playfair text-[17px] leading-[23px] text-dim-gray">
-                    Lorem ispum dolor sit amet
-                  </p>
-                </div>
-
-
-              </div>
-
-              <div className='flex justify-start items-center text-start'>
-
-                <div className="w-[44px] h-[50px] max-w-full mr-5">
-                  <Image src={geothermicMassageIcon} alt="header" width={512} height={512} />
-                </div>
-
-                <div className="w-[100%]">
-                  {/*price top*/}
-                  <div className="flex items-end justify-start pb-[10px] w-{100%]">
-                    <h4 className='font-syne font-bold text-base leading-5 my-0 xsm:mr-5 whitespace-nowrap'>Geothermal spa</h4>
-                    <div className="hidden xsm:block w-[100%] h-[1px] bg-line-gray"></div>
-
-                    <div className="flex items-end justify-start flex-shrink-0 flex-grow-0 ml-5">
-                      <p className="font-playfair italic text-[15px] text-dim-gray leading-[23px] mb-0 mr-[5px]">
-                        from
-                      </p>
-                      <p className="font-syne italic text-[30px] leading-[30px] mr-[5px]">
-                        $42
-                      </p>
-                    </div>
-                  </div>
-                  <p className="font-playfair text-[17px] leading-[23px] text-dim-gray">
-                    Lorem ispum dolor sit amet
-                  </p>
-                </div>
-
-
-              </div>
-
-
-
-              <div className='flex justify-start items-center text-start'>
-
-                <div className="w-[44px] h-[50px] max-w-full mr-5">
-                  <Image src={fullBodyMassageIcon} alt="header" width={512} height={512} />
-                </div>
-
-                <div className="w-[100%]">
-                  {/*price top*/}
-                  <div className="flex items-end justify-start pb-[10px] w-{100%]">
-                    <h4 className='font-syne font-bold text-base leading-5 my-0 xsm:mr-5 whitespace-nowrap'>Full Body Massage</h4>
-                    <div className="hidden xsm:block w-[100%] h-[1px] bg-line-gray"></div>
-
-                    <div className="flex items-end justify-start flex-shrink-0 flex-grow-0 ml-5">
-                      <p className="font-playfair italic text-[15px] text-dim-gray leading-[23px] mb-0 mr-[5px]">
-                        from
-                      </p>
-                      <p className="font-syne text-[30px] leading-[30px] mr-[5px]">
-                        $14
-                      </p>
-                    </div>
-                  </div>
-                  <p className="font-playfair text-[17px] leading-[23px] text-dim-gray">
-                    Lorem ispum dolor sit amet
-                  </p>
-                </div>
-
-
-              </div>
-
-              <div className='flex justify-start items-center text-start'>
-
-                <div className="w-[44px] h-[50px] max-w-full mr-5">
-                  <Image src={saunaIcon} alt="header" width={512} height={512} />
-                </div>
-
-                <div className="w-[100%]">
-                  {/*price top*/}
-                  <div className="flex items-end justify-start pb-[10px] w-{100%]">
-                    <h4 className='font-syne font-bold text-base leading-5 my-0 xsm:mr-5 whitespace-nowrap'>Sauna Relax</h4>
-                    <div className="hidden xsm:block w-[100%] h-[1px] bg-line-gray"></div>
-
-                    <div className="flex items-end justify-start flex-shrink-0 flex-grow-0 ml-5">
-                      <p className="font-playfair italic text-[15px] text-dim-gray leading-[23px] mb-0 mr-[5px]">
-                        from
-                      </p>
-                      <p className="font-syne text-[30px] leading-[30px] mr-[5px]">
-                        $55
-                      </p>
-                    </div>
-                  </div>
-                  <p className="font-playfair text-[17px] leading-[23px] text-dim-gray">
-                    Lorem ispum dolor sit amet
-                  </p>
-                </div>
-
-
-              </div>
-
-              <div className='flex justify-start items-center text-start'>
-
-                <div className="w-[44px] h-[50px] max-w-full mr-5">
-                  <Image src={makeupIcon} alt="header" width={512} height={512} />
-                </div>
-
-                <div className="w-[100%]">
-                  {/*price top*/}
-                  <div className="flex items-end justify-start pb-[10px] w-{100%]">
-                    <h4 className='font-syne font-bold text-base leading-5 my-0 xsm:mr-5 whitespace-nowrap'>Makeup & Massage</h4>
-                    <div className="hidden xsm:block w-[100%] h-[1px] bg-line-gray"></div>
-
-                    <div className="flex items-end justify-start flex-shrink-0 flex-grow-0 ml-5">
-                      <p className="font-playfair italic text-[15px] text-dim-gray leading-[23px] mb-0 mr-[5px]">
-                        from
-                      </p>
-                      <p className="font-syne text-[30px] leading-[30px] mr-[5px]">
-                        $19
-                      </p>
-                    </div>
-                  </div>
-                  <p className="font-playfair text-[17px] leading-[23px] text-dim-gray">
-                    Lorem ispum dolor sit amet
-                  </p>
-                </div>
-
-
-              </div>
+            <div className='grid md:grid-rows-4 md:grid-cols-2 gap-y-8 xsm:gap-x-[70px] items-stretch justify-items-stretch content-evenly content-justify-evenly pt-14 ml-4  xsm:pt-28'>
+            {orderedPriceMenu.map((price) => {
+              return (
+                <PriceMenu price={price} />
+              )
+            }
+            )}
             </div>
-
-
           </div>
-
         </section>
-
-        
         <Hourly />
-
       </div>
-
     </div>
   )
 }
@@ -425,13 +197,23 @@ export const getServerSideProps = async () => {
   mainImage,
     slug
     }`;
-
   const informationPosts = await sanityClient.fetch(informationQuery);
+
+  const priceMenuQuery = `
+  *[_type == "price-menu"] {
+    title,
+    description,
+    price,
+    menuNumber,
+    Image
+    }`;
+  const priceMenu = await sanityClient.fetch(priceMenuQuery);
 
   return {
     props: {
       posts,
-      informationPosts
+      informationPosts,
+      priceMenu
     }
   }
 } 

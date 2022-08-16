@@ -23,3 +23,15 @@ export interface Post {
 
     body: [object];
 }
+
+export interface Price_Menu {
+    title: string;
+    description: string;
+    Image: {
+        asset: {
+            url: string;
+        };
+    }
+    price: string;
+    menuNumber: number;
+}

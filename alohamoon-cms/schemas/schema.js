@@ -8,6 +8,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import blockContent from './blockContent'
 import category from './category'
 import post from './service-post'
+import priceMenu from './price-menu'
 import informationSection from './information-section'
 import menu from './menu'
 
@@ -21,6 +22,7 @@ export default createSchema({
     // The following are document types which will appear
     // in the studio.
     menu,
+    priceMenu,
     post,
     informationSection,
     category,
