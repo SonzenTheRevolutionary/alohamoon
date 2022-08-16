@@ -57,7 +57,7 @@ function Post({ post, priceMenu }: Props) {
                                     <h4 className="text-lg text-black font-syne font-bold leading-normal my-2" {...props} />
                                 ),
                                 li: ({ children }: any) => (
-                                    <li className="ml-[40px] text-base font-syne font-medium list-disc" >{children}</li>
+                                    <li key={post._id} className="ml-[40px] text-base font-syne font-medium list-disc" >{children}</li>
                                 ),
                             }
                         }
@@ -68,7 +68,7 @@ function Post({ post, priceMenu }: Props) {
                 <div className='grid max-w-[90%] md:max-w-full m-auto mt-4 md:mt-[100px] mb-14 md:w-full md:grid-rows-4 md:grid-cols-2 gap-y-8 md:gap-x-[70px] items-stretch justify-items-stretch content-evenly content-justify-evenly pt-14 md:pt-28'>
                         {orderedPriceMenu.map((price) => {
                             return (
-                                <PriceMenu price={price} />
+                                <PriceMenu key={price._id} price={price} />
                             )
                         }
                         )}

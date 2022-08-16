@@ -154,7 +154,7 @@ export default function Home({ posts, informationPosts, priceMenu }: Props) {
             <div className='grid md:grid-rows-4 md:grid-cols-2 gap-y-8 xsm:gap-x-[70px] items-stretch justify-items-stretch content-evenly content-justify-evenly pt-14 ml-4  xsm:pt-28'>
             {orderedPriceMenu.map((price) => {
               return (
-                <PriceMenu price={price} />
+                <PriceMenu key={price._id} price={price} />
               )
             }
             )}
@@ -201,6 +201,7 @@ export const getServerSideProps = async () => {
 
   const priceMenuQuery = `
   *[_type == "price-menu"] {
+    _id,
     title,
     description,
     price,

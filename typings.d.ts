@@ -25,6 +25,7 @@ export interface Post {
 }
 
 export interface Price_Menu {
+    _id: string;
     title: string;
     description: string;
     Image: {
