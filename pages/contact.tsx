@@ -24,7 +24,7 @@ export function orderPriceMenu(priceMenu: [Price_Menu]) {
 }
 
 
-function contact({ priceMenu }: Props) {
+function Contact({ priceMenu }: Props) {
     const orderedPriceMenu = orderPriceMenu(priceMenu)
     const { register, handleSubmit, setError, formState: { errors }, reset } = useForm();
 
@@ -152,4 +152,4 @@ export const getServerSideProps = async () => {
     }
 }
 
-export default contact
+export default Contact
