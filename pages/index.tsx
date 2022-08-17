@@ -104,7 +104,7 @@ export default function Home({ posts, informationPosts, priceMenu }: Props) {
                 <Image src={flowerIcon} alt="header" width={511} height={420} />
               </div>
               <h2 className='my-[10px] font-syne font-bold text-[30px] leading-8 md:text-[39px] md:leading-[42px]'>
-                Outcall Services
+              Special Services
               </h2>
             </div>
 

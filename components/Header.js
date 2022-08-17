@@ -17,7 +17,7 @@ function Header(props) {
 
 
     return (
-        <div className="flex fixed top-0 z-50 w-full overflow-visible justify-between items-center xsm:min-h-[70px] px-5 xsm:px-6 bg-white">
+        <div className="flex fixed top-0 z-50 w-full overflow-visible justify-between items-center md:min-h-[70px] px-5 xsm:px-6 bg-white">
             <Link href="/">
             <div className="w-48 md:w-60 h-auto mt-2">
                 <Image src={logo} alt="header" width={900} height={96} />

@@ -14,7 +14,7 @@ function InformationPost({ post }) {
         </div>
         <div className='flex-1'>
           <h3 className="font-syne font-bold text-[19px] leading-[22px] mt-10 mb-[10px]">
-            Stone spa
+            {post.title}
           </h3>
           <p className="font-playfair text-[17px] text-dim-gray leading-[23px] mb-[10px]">
             {post.description}

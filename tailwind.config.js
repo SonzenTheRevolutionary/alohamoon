@@ -16,6 +16,7 @@ module.exports = {
         'dim-gray': '#686868',
         'burlywood': '#dea974',
         'line-gray': '#e1e1e1',
+        'light-gray': '#e4e4e4',
       }
     },
     screens : {
