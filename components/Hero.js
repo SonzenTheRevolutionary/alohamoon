@@ -2,6 +2,7 @@ import Image from 'next/image'
 import flowerIcon from '../public/icons/flower 2.png'
 import heroDots from '../public/icons/dots.png'
 import heroFlowers from '../public/icons/flower-p-500.png'
+import Link from 'next/link'
 
 function Hero() {
     return (
@@ -24,7 +25,9 @@ function Hero() {
                     </p>
 
                     <div className='flex flex-col xsm:flex-row text-center xsm:space-x-[20px] justify-start max-w-fit'>
+                        <Link href="/contact">
                         <button className="relative bg-burlywood mb-4 md:mb-0 py-3 px-6 xsm:px-5 rounded-md text-sm font-syne font-bold">Make Reservation</button>
+                        </Link>
                         <button className='relative bg-white text-burlywood mr-4 xsm:mr-0 xsm:ml-5 mb-4 md:mb-0 py-3 px-8 xsm:px-5 rounded-md text-sm font-syne font-bold'>Our Treatments</button>
                     </div>
                 </div>

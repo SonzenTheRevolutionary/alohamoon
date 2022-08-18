@@ -16,9 +16,9 @@ import { sanityClient, urlFor } from '../sanity'
 function PriceMenu({ price }) {
     console.log(price)
   return (
-    <div className='flex flex-col md:flex-row justify-start items-center content-center text-start'>
+    <div className='flex flex-col xsm:flex-row justify-start items-center content-center text-start'>
 
-      <div className="w-[44px] md:min-w-[60px] self-start md:self-center md:pr-4  h-[50px] max-w-full">
+      <div className="w-[44px] xsm:min-w-[60px] self-start xsm:self-center xsm:pr-4  h-[50px] max-w-full">
         <Image src={
             urlFor(price.Image).url()!
         } alt="header" width={512} height={512} />
@@ -26,7 +26,7 @@ function PriceMenu({ price }) {
 
       <div className="w-[100%]">
         {/*price top*/}
-        <div className="flex items-end justify-start pb-[10px] w-{100%]">
+        <div className="flex items-end justify-start pb-[10px] w-[100%]">
           <h4 className='font-syne font-bold text-base leading-5 my-0 xsm:mr-5 whitespace-nowrap'>{price.title}</h4>
           <div className="hidden xsm:block w-[100%] h-[1px] bg-line-gray"></div>
 

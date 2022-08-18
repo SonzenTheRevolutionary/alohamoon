@@ -36,3 +36,11 @@ export interface Price_Menu {
     price: string;
     menuNumber: number;
 }
+
+export interface Hours_Background {
+    backgroundImage: {
+        asset: {
+            url: string;
+        };
+    }
+}

@@ -8,7 +8,6 @@ import heroFlowers from '../public/icons/flower-p-500.png'
 import { useForm } from "react-hook-form";
 import { sanityClient } from "../sanity"
 import { Price_Menu } from "../typings"
-import { SMTPClient } from 'emailjs';
 import emailjs from '@emailjs/browser';
 
 

@@ -21,7 +21,7 @@ import saunaIcon from '.././public/icons/sauna icon.png'
 import makeupIcon from '.././public/icons/makeup and massage.png'
 import Link from 'next/link'
 import Menu from '../components/Menu'
-import { Post, Price_Menu } from '.././typings'
+import { Hours_Background, Post, Price_Menu } from '.././typings'
 import Hourly from '../components/Hourly'
 import InformationPost from '../components/InformationPost'
 import PriceMenu from '../components/PriceMenu'
@@ -31,6 +31,7 @@ export interface Props {
   posts: [Post];
   informationPosts: [Post];
   priceMenu: [Price_Menu];
+  hourlyBackground: [Hours_Background];
 }
 
 
@@ -53,13 +54,20 @@ export function getCategory(post) {
   return category
 }
 
+export function getBackgroundImage(hourlyBackground) {
+  let backgroundImage = hourlyBackground.backgroundImage.asset
+  return backgroundImage
+}
 
 
-export default function Home({ posts, informationPosts, priceMenu }: Props) {
+
+
+export default function Home({ posts, informationPosts, priceMenu, hourlyBackground }: Props) {
 
   const orderedPosts = orderPosts(posts)
   const orderedInformationPosts = orderPosts(informationPosts)
   const orderedPriceMenu = orderPriceMenu(priceMenu)
+
 
 
   //console.log(typeof posts.map(post => post.categories.map(category => category.title)).toString())
@@ -104,7 +112,7 @@ export default function Home({ posts, informationPosts, priceMenu }: Props) {
                 <Image src={flowerIcon} alt="header" width={511} height={420} />
               </div>
               <h2 className='my-[10px] font-syne font-bold text-[30px] leading-8 md:text-[39px] md:leading-[42px]'>
-              Special Services
+                Special Services
               </h2>
             </div>
 
@@ -139,8 +147,9 @@ export default function Home({ posts, informationPosts, priceMenu }: Props) {
                   I’ve worked with Professional Athletes, Celebrities, Elderly People with Chronic Pain, Pregnant Women  and Honeymooners. I absolutely Love what I do. I have been fortunate enough to learn from highly skilled Teachers from all over the World and  I’m Trained in many Modalities and always learning more. In 2017 I was able Take all the things Ive learned and open my own Day Spa “Aloha Moon” in Old Town Kapaa, Where I can bring  The Quality service from Luxury Spas and offer customized services at an affordable price
                   The Therapists that Work with Me at Aloha Moon are all highly trained and Skilled technicians with Years of experience. We customize the service to your individual needs.
                 </p>
-
+                <Link href="/contact">
                 <button className="mt-[50px] relative bg-burlywood mb-4 md:mb-0 py-3 px-8 md:px-5 rounded-md text-sm font-syne font-bold">Make Reservation</button>
+                </Link>
               </div>
             </div>
 
@@ -152,17 +161,17 @@ export default function Home({ posts, informationPosts, priceMenu }: Props) {
 
             {/* PRICING GRID */}
             <div className='grid md:grid-rows-4 md:grid-cols-2 gap-y-8 xsm:gap-x-[70px] items-stretch justify-items-stretch content-evenly content-justify-evenly pt-14 ml-4  xsm:pt-28'>
-            {orderedPriceMenu.map((price) => {
-              return (
-                <PriceMenu key={price._id} price={price} />
-              )
-            }
-            )}
+              {orderedPriceMenu.map((price) => {
+                return (
+                  <PriceMenu key={price._id} price={price} />
+                )
+              }
+              )}
             </div>
           </div>
         </section>
-        <Hourly />
       </div>
+      <Hourly hourlyBackground={getBackgroundImage(hourlyBackground)} />
     </div>
   )
 }
@@ -210,11 +219,18 @@ export const getServerSideProps = async () => {
     }`;
   const priceMenu = await sanityClient.fetch(priceMenuQuery);
 
+  const hourlyBackgroundQuery = `
+  *[_type == "hours-section-background"][0] {
+    backgroundImage 
+    }`
+  const hourlyBackground = await sanityClient.fetch(hourlyBackgroundQuery)
+
   return {
     props: {
       posts,
       informationPosts,
-      priceMenu
+      priceMenu,
+      hourlyBackground
     }
   }
 } 

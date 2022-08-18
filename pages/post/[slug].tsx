@@ -1,24 +1,32 @@
 import { GetStaticProps } from "next";
 import Header from "../../components/Header";
 import { sanityClient, urlFor } from "../../sanity";
-import { Post, Price_Menu } from "../../typings";
+import { Hours_Background, Post, Price_Menu } from "../../typings";
 import PortableText from "react-portable-text"
 import PriceMenu from "../../components/PriceMenu";
 import { orderPriceMenu } from "..";
+import Hourly from "../../components/Hourly";
+import Link from "next/link";
 
 interface Props {
     post: Post;
     priceMenu: [Price_Menu];
+    hourlyBackground: [Hours_Background];
 }
 
-function Post({ post, priceMenu }: Props) {
+function getBackgroundImage(hourlyBackground) {
+    let backgroundImage = hourlyBackground.backgroundImage.asset
+    return backgroundImage
+  }
+
+function Post({ post, priceMenu, hourlyBackground }: Props) {
     let backgroundImage = urlFor(post.backgroundImage).url()!
 
     const orderedPriceMenu = orderPriceMenu(priceMenu)
     return (
         <div className="flex flex-col">
             <Header />
-            <div id="postHero" className="flex relative flex-col xsm:mt-[70px] m-auto w-full py[60px] px-4 align-start justify-center items-start xsm:items-center pt-32 md:pt-[100px] bg-linen">
+            <div id="postHero" className="flex relative flex-col md:mt-[70px] m-auto w-full py[60px] px-4 align-start justify-center items-start xsm:items-center pt-32 md:pt-[100px] bg-linen">
 
                 <div className="max-w-[90%]">
                     <style>
@@ -29,7 +37,9 @@ function Post({ post, priceMenu }: Props) {
                     </style>
                     <h1 className="font-syne relative pb-2 text-white font-extrabold text-[32px] xsm:text-[53px] leading-[57px]">{post.title}</h1>
                     <div className="flex flex-col xsm:flex-row mt-2 xsm:mt-10 justify-center mb-[100px]">
+                        <Link href="/contact">
                         <button className="relative bg-burlywood text-black mb-2 md:mb-0 py-3 px-6 xsm:px-7 rounded-md text-sm font-syne font-bold">Make Reservation</button>
+                        </Link>
                         <button className='relative bg-white text-burlywood mr-6 xsm:ml-4 mb-2 md:mb-0 py-3 px-6 xsm:px-7 rounded-md text-sm font-syne font-bold'>Our Treatments</button>
                     </div>
                 </div>
@@ -73,6 +83,8 @@ function Post({ post, priceMenu }: Props) {
                         }
                         )}
                     </div>
+
+                    <Hourly hourlyBackground={getBackgroundImage(hourlyBackground)}/>
             </article>
 
         </div>
@@ -80,6 +92,7 @@ function Post({ post, priceMenu }: Props) {
 }
 
 export default Post
+
 
 export const getStaticPaths = async () => {
     const query = `
@@ -124,7 +137,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         Image
         }`;
     const priceMenu = await sanityClient.fetch(priceMenuQuery);
-
+    
+    const hourlyBackgroundQuery = `
+    *[_type == "hours-section-background"][0] {
+      backgroundImage 
+      }`
+    const hourlyBackground = await sanityClient.fetch(hourlyBackgroundQuery)
+    
     const post = await sanityClient.fetch(query, {
         slug: params?.slug
     });
@@ -138,8 +157,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return {
         props: {
             post,
-            priceMenu
+            priceMenu,
+            hourlyBackground
         },
         revalidate: 86400
     }
 }
+

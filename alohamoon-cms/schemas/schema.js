@@ -11,6 +11,7 @@ import post from './service-post'
 import priceMenu from './price-menu'
 import informationSection from './information-section'
 import menu from './menu'
+import hoursSectionBackground from './hours-section-background'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -25,6 +26,7 @@ export default createSchema({
     priceMenu,
     post,
     informationSection,
+    hoursSectionBackground,
     category,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
